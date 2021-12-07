@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { User } from 'src/app/models/user';
+import { LoginService} from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,18 +12,14 @@ export class LoginComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
   }
 
   // NOTE: extract to service!
   login(){
-    let params = {email: this.email, password: this.password}
-    this.httpClient.post(`${environment.apiURL}/users/login`, params).subscribe((response) => {
-      const token = response['token'];
-      localStorage.setItem("authToken", token);
-      // TODO: redirect to home path!
-    })
+    const user = new User(this.email, this.password);
+    this.loginService.call(user);
   }
 }
