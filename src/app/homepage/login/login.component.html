@@ -7,6 +7,7 @@
     </div>
     <div class="card-body">
       <form (ngSubmit)="login()">
+        <label *ngIf="renderError" class="text-danger" >{{errorMessage}}</label>
         <div class="mb-3">
           <label for="email">Email</label>
           <input type="text" [(ngModel)]="email" class="form-control" name="email">

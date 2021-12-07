@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
-import { LoginService} from './login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +12,36 @@ export class LoginComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private loginService: LoginService) {}
+  renderError: boolean = false;
+  errorMessage: string = "";
+
+  private apiURL = `${environment.apiURL}/users/login`;
+
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
   }
 
-  // NOTE: extract to service!
   login(){
-    const user = new User(this.email, this.password);
-    this.loginService.call(user);
+    let params = {email: this.email, password: this.password}
+    this.httpClient.post(this.apiURL, params).subscribe(
+      response => this.authenticate(response),
+      error => this.renderErrorMessage(error)
+    );
+  }
+
+  private authenticate(response):void{
+    const token = response['token'];
+    localStorage.setItem("authToken", token);
+    // TODO: redirect to home path!
+  }
+
+  private renderErrorMessage(error):void{
+    this.renderError = true;
+    if(error.status == 403) {
+      this.errorMessage = "Email e/ou senha inválido(s)";
+    } else {
+      this.errorMessage = "Houve uma falha inesperada, por favor tente novamente em alguns instantes."
+    }
   }
 }
