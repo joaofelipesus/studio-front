@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode'
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-personal',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authentication: AuthenticationService){
+    this.authentication.call();
+  }
 
   ngOnInit(): void {
   }
