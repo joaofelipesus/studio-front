@@ -19,8 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login(){
     let params = {email: this.email, password: this.password}
