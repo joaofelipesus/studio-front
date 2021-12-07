@@ -10,11 +10,11 @@
         <label *ngIf="renderError" class="text-danger" >{{errorMessage}}</label>
         <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" [(ngModel)]="email" class="form-control" name="email">
+          <input type="email" [(ngModel)]="email" class="form-control" name="email" id="email">
         </div>
         <div class="mb-3">
           <label for="password">Senha</label>
-          <input [(ngModel)]="password" class="form-control" type="password" name="password">
+          <input [(ngModel)]="password" class="form-control" type="password" name="password" id="password">
         </div>
         <button class="btn btn-primary">
           Enviar
