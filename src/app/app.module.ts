@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './homepage/home/home.component';
 import { LoginComponent } from './homepage/login/login.component';
 import { HomeNavbarComponent } from './homepage/home-navbar/home-navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeNavbarComponent } from './homepage/home-navbar/home-navbar.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

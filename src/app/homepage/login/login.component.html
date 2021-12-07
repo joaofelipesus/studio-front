@@ -1,3 +1,24 @@
 <app-home-navbar></app-home-navbar>
 
-<p>login works!</p>
+<main class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      Login
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="text" [(ngModel)]="email" class="form-control" name="email">
+        </div>
+        <div class="mb-3">
+          <label for="password">Senha</label>
+          <input [(ngModel)]="password" class="form-control" type="password" name="password">
+        </div>
+        <button class="btn btn-primary">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
