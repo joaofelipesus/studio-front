@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   email: string = "";
-  password: string = ''
+  password: string = "";
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
   }
 
-  login(){}
+  login(){
+    let params = {email: this.email, password: this.password}
+    this.httpClient.post("http://localhost:3000/api/users/login", params).subscribe((response) => {
+      const token = response['token'];
+      localStorage.setItem("authToken", token);
+      // TODO: redirect to home path!
+    })
+  }
 }
