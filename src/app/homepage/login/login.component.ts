@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // NOTE: extract to service!
   login(){
     let params = {email: this.email, password: this.password}
-    this.httpClient.post("http://localhost:3000/api/users/login", params).subscribe((response) => {
+    this.httpClient.post(`${environment.apiURL}/users/login`, params).subscribe((response) => {
       const token = response['token'];
       localStorage.setItem("authToken", token);
       // TODO: redirect to home path!
