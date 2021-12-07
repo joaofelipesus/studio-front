@@ -8,13 +8,15 @@ import { LoginComponent } from './homepage/login/login.component';
 import { HomeNavbarComponent } from './homepage/home-navbar/home-navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
+import { PersonalComponent } from './homepage/personal/personal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    HomeNavbarComponent
+    HomeNavbarComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

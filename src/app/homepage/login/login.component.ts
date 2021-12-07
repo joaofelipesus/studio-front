@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   private apiURL = `${environment.apiURL}/users/login`;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   private authenticate(response):void{
     const token = response['token'];
     localStorage.setItem("authToken", token);
-    // TODO: redirect to home path!
+    this.router.navigateByUrl("home/personal")
   }
 
   private renderErrorMessage(error):void{
