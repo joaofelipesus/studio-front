@@ -9,8 +9,8 @@ import { HomeNavbarComponent } from './views/home/home-navbar/home-navbar.compon
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
 import { PersonalComponent } from './views/home/personal/personal.component';
-import { CreateComponent } from './views/exercises/create/create.component';
 import { PersonalNavbarComponent } from './views/home/personal-navbar/personal-navbar.component';
+import { CreateExerciseComponent } from './views/exercises/create-exercise/create-exercise.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { PersonalNavbarComponent } from './views/home/personal-navbar/personal-n
     LoginComponent,
     HomeNavbarComponent,
     PersonalComponent,
-    CreateComponent,
-    PersonalNavbarComponent
+    PersonalNavbarComponent,
+    CreateExerciseComponent
   ],
   imports: [
     BrowserModule,
