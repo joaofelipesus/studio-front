@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home/home.component';
-import { LoginComponent } from './pages/home/login/login.component';
-import { HomeNavbarComponent } from './pages/home/home-navbar/home-navbar.component';
+import { HomeComponent } from './views/home/home/home.component';
+import { LoginComponent } from './views/home/login/login.component';
+import { HomeNavbarComponent } from './views/home/home-navbar/home-navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
-import { PersonalComponent } from './pages/home/personal/personal.component';
+import { PersonalComponent } from './views/home/personal/personal.component';
 
 @NgModule({
   declarations: [
