@@ -10,11 +10,15 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class PersonalComponent implements OnInit {
 
-  constructor(private authentication: AuthenticationService){
+  constructor(private authentication: AuthenticationService, private router: Router){
     this.authentication.call();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  logout(): void {
+    localStorage.removeItem("authToken");
+    this.router.navigateByUrl("/");
   }
 
 }
