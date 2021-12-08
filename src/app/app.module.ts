@@ -9,6 +9,8 @@ import { HomeNavbarComponent } from './views/home/home-navbar/home-navbar.compon
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
 import { PersonalComponent } from './views/home/personal/personal.component';
+import { CreateComponent } from './views/exercises/create/create.component';
+import { PersonalNavbarComponent } from './views/home/personal-navbar/personal-navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { PersonalComponent } from './views/home/personal/personal.component';
     HomeComponent,
     LoginComponent,
     HomeNavbarComponent,
-    PersonalComponent
+    PersonalComponent,
+    CreateComponent,
+    PersonalNavbarComponent
   ],
   imports: [
     BrowserModule,
