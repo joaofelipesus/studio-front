@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { MuscularGroup } from '../../../models/muscular_group';
 import { MuscularGroupFactory } from '../../../factories/muscular_group_factory';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-exercise',
@@ -15,8 +16,9 @@ export class CreateExerciseComponent implements OnInit {
   muscularGroupId: string = "";
   muscularGroups: MuscularGroup[] = [];
   headers = this.setupHeaders();
+  formErrors: string[] = [];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.httpClient.get(`${environment.apiURL}/muscular_groups`, { headers: this.headers }).subscribe(response => {
@@ -31,9 +33,10 @@ export class CreateExerciseComponent implements OnInit {
     }
     this.httpClient.post(`${environment.apiURL}/exercises`, exercise, {headers: this.headers})
       .subscribe(response => {
-        console.log(response)
+        const newExerciseId = response["exercise"].id;
+        this.router.navigateByUrl(`exercises/${newExerciseId}`);
       },
-      error => console.log(error)
+      error => this.formErrors = error.error["errors"]
     )
   }
 
@@ -41,5 +44,4 @@ export class CreateExerciseComponent implements OnInit {
     const token = localStorage.getItem("authToken");
     return { 'Authorization': `Bearer ${token}`};
   }
-
 }

@@ -5,6 +5,7 @@
     <div class="card-header">Novo exercício</div>
     <div class="card-body">
       <form (ngSubmit)="save()">
+        <app-form-error-messages [formErrors]="this.formErrors"></app-form-error-messages>
         <div class="mb-3">
           <label for="name">Nome</label>
           <input type="text" id="name" [(ngModel)]="name" class="form-control" autofocus name="name" />
