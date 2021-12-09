@@ -12,6 +12,7 @@ import { PersonalComponent } from './views/home/personal/personal.component';
 import { PersonalNavbarComponent } from './views/home/personal-navbar/personal-navbar.component';
 import { CreateExerciseComponent } from './views/exercises/create-exercise/create-exercise.component';
 import { ShowExerciseComponent } from './views/exercises/show-exercise/show-exercise.component';
+import { ErrorHandlerComponent } from './views/shared/error-handler/error-handler.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ShowExerciseComponent } from './views/exercises/show-exercise/show-exer
     PersonalComponent,
     PersonalNavbarComponent,
     CreateExerciseComponent,
-    ShowExerciseComponent
+    ShowExerciseComponent,
+    ErrorHandlerComponent
   ],
   imports: [
     BrowserModule,

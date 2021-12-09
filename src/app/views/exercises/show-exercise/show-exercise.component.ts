@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { HeaderHandlerService } from 'src/app/services/header-handler.service'
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
+import { ErrorHandlerService } from 'src/app/services/error-handler.service';
 
 @Component({
   selector: 'app-show-exercise',
@@ -16,6 +17,7 @@ export class ShowExerciseComponent implements OnInit {
   // exerciseId: String;
   // name: String = "";
   // muscularGroupName: String = "";
+  errorMessage: String = "";
   exercise: Exercise = new Exercise();
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private headerHandler: HeaderHandlerService) { }
@@ -24,12 +26,12 @@ export class ShowExerciseComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.exercise.id = params.get("id");
       this.httpClient.get(`${environment.apiURL}/exercises/${this.exercise.id}`, this.headerHandler.call())
-        .subscribe(response => {
-          // console.log(response)
-          // console.log(ExerciseFactory.build(response))
-          this.exercise = ExerciseFactory.build(response);
-        },
-        error => console.log(error)
+        .subscribe(response => this.exercise = ExerciseFactory.build(response),
+        error => {
+          this.errorMessage = ErrorHandlerService.call(error.status, "Exercício");
+          console.log(this.errorMessage);
+
+        }
       )
     })
   }
