@@ -11,6 +11,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { PersonalComponent } from './views/home/personal/personal.component';
 import { PersonalNavbarComponent } from './views/home/personal-navbar/personal-navbar.component';
 import { CreateExerciseComponent } from './views/exercises/create-exercise/create-exercise.component';
+import { ShowExerciseComponent } from './views/exercises/show-exercise/show-exercise.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateExerciseComponent } from './views/exercises/create-exercise/creat
     HomeNavbarComponent,
     PersonalComponent,
     PersonalNavbarComponent,
-    CreateExerciseComponent
+    CreateExerciseComponent,
+    ShowExerciseComponent
   ],
   imports: [
     BrowserModule,

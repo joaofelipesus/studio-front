@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { MuscularGroup } from '../../../models/muscular_group';
 import { MuscularGroupFactory } from '../../../factories/muscular_group_factory';
-import { Exercise } from '../../../models/exercise';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-create-exercise',
