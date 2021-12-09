@@ -26,7 +26,10 @@ export class ShowExerciseComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.exercise.id = params.get("id");
       this.httpClient.get(`${environment.apiURL}/exercises/${this.exercise.id}`, this.headerHandler.call())
-        .subscribe(response => this.exercise = ExerciseFactory.build(response),
+        .subscribe(response => {
+          console.log("MALAKOI")
+          this.exercise = ExerciseFactory.build(response)
+        },
         error => {
           this.errorMessage = ErrorHandlerService.call(error.status, "Exercício");
           console.log(this.errorMessage);
