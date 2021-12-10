@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
           <label for="muscular_grout_id">Grupo Muscular</label>
-          <select [(ngModel)]="muscularGroupId" name="muscularGroupId" class="form-select">
+          <select [(ngModel)]="muscularGroupId" name="muscularGroupId" class="form-select" id="muscular_group_id">
             <option *ngFor="let muscularGroup of muscularGroups" value={{muscularGroup.id}}>
               {{muscularGroup.name}}
             </option>
