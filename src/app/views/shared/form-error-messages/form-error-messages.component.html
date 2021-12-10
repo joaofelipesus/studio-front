@@ -1,0 +1,7 @@
+<div *ngIf="this.formErrors.length > 0">
+  <ul>
+    <li class="text-danger error-message" *ngFor="let errorMessage of this.formErrors">
+      {{errorMessage}}
+    </li>
+  </ul>
+</div>

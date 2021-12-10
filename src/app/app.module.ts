@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './homepage/home/home.component';
-import { LoginComponent } from './homepage/login/login.component';
-import { HomeNavbarComponent } from './homepage/home-navbar/home-navbar.component';
+import { HomeComponent } from './views/home/home/home.component';
+import { LoginComponent } from './views/home/login/login.component';
+import { HomeNavbarComponent } from './views/home/home-navbar/home-navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
-import { PersonalComponent } from './homepage/personal/personal.component';
+import { PersonalComponent } from './views/home/personal/personal.component';
+import { PersonalNavbarComponent } from './views/home/personal-navbar/personal-navbar.component';
+import { CreateExerciseComponent } from './views/exercises/create-exercise/create-exercise.component';
+import { ShowExerciseComponent } from './views/exercises/show-exercise/show-exercise.component';
+import { ErrorHandlerComponent } from './views/shared/error-handler/error-handler.component';
+import { FormErrorMessagesComponent } from './views/shared/form-error-messages/form-error-messages.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { PersonalComponent } from './homepage/personal/personal.component';
     HomeComponent,
     LoginComponent,
     HomeNavbarComponent,
-    PersonalComponent
+    PersonalComponent,
+    PersonalNavbarComponent,
+    CreateExerciseComponent,
+    ShowExerciseComponent,
+    ErrorHandlerComponent,
+    FormErrorMessagesComponent
   ],
   imports: [
     BrowserModule,

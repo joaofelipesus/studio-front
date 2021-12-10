@@ -1,0 +1,20 @@
+<app-personal-navbar></app-personal-navbar>
+
+<main class="container mt-5">
+
+  <app-error-handler [errorMessage]="this.errorMessage"></app-error-handler>
+
+  <div class="card" *ngIf="this.errorMessage == ''">
+    <div class="card-header">Exercício</div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label>Nome</label>
+        <input disabled class="form-control disabled" value="{{this.exercise.name}}" id="name">
+      </div>
+      <div class="mb-3">
+        <label>Grupo muscular</label>
+        <input disabled class="form-control disabled" value="{{this.exercise.muscularGroup.name}}" id="muscular-group">
+      </div>
+    </div>
+  </div>
+</main>
