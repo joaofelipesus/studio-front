@@ -7,6 +7,7 @@ export class ExerciseFactory {
     exercise.id = exercise_params["id"];
     exercise.name = exercise_params["name"];
     exercise.muscularGroup.name = exercise_params["muscular_group"]["name"];
+    exercise.muscular_group_id = exercise_params["muscular_group_id"]
     return exercise;
   }
 }
