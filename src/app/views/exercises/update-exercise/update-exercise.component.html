@@ -6,7 +6,7 @@
       Editar exercício
     </div>
     <div class="card-body">
-      <form action="">
+      <form (ngSubmit)="save()">
         <app-form-error-messages [formErrors]="this.formErrors"></app-form-error-messages>
         <div class="mb-3">
           <label for="name">Nome</label>

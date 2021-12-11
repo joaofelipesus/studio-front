@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
 import { ErrorHandlerService } from 'src/app/services/error-handler.service';
@@ -21,7 +21,8 @@ export class UpdateExerciseComponent implements OnInit {
   formErrors: string[] = [];
   muscularGroups: MuscularGroup[] = [];
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private headerHandler: HeaderHandlerService) { }
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute,
+              private headerHandler: HeaderHandlerService, private router: Router) { }
 
   ngOnInit(): void {
     this.httpClient.get(`${environment.apiURL}/muscular_groups`, this.headerHandler.call()).subscribe(response => {
@@ -38,8 +39,20 @@ export class UpdateExerciseComponent implements OnInit {
             error => this.errorMessage = ErrorHandlerService.call(error.status, "Exercício")
           )
       });
-
     })
+  }
+
+  save(){
+    const body = {
+      name: this.exercise.name,
+      muscular_group_id: this.exercise.muscular_group_id
+    }
+
+    this.httpClient.put(`${environment.apiURL}/exercises/${this.exercise.id}`, body, this.headerHandler.call())
+      .subscribe(
+        _response => this.router.navigateByUrl(`exercises/${this.exercise.id}`),
+        error => this.formErrors = error.error["errors"]
+      )
   }
 
 }
