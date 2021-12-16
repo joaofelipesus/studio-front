@@ -14,7 +14,8 @@ import { CreateExerciseComponent } from './views/exercises/create-exercise/creat
 import { ShowExerciseComponent } from './views/exercises/show-exercise/show-exercise.component';
 import { ErrorHandlerComponent } from './views/shared/error-handler/error-handler.component';
 import { FormErrorMessagesComponent } from './views/shared/form-error-messages/form-error-messages.component';
-
+import { UpdateExerciseComponent } from './views/exercises/update-exercise/update-exercise.component';
+import { ListExerciseComponent } from './views/exercises/list-exercise/list-exercise.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { FormErrorMessagesComponent } from './views/shared/form-error-messages/f
     CreateExerciseComponent,
     ShowExerciseComponent,
     ErrorHandlerComponent,
-    FormErrorMessagesComponent
+    FormErrorMessagesComponent,
+    UpdateExerciseComponent,
+    ListExerciseComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,46 @@
+<app-personal-navbar></app-personal-navbar>
+
+<main class="container mt-3">
+  <h2 class="text-center mb-2">
+    Exercícios
+  </h2>
+
+  <table class="table">
+    <thead>
+      <th>Nome</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exercise of this.exercises">
+        <td>{{exercise.name}}</td>
+        <td>
+          <a class="btn btn-sm btn-outline-info text-info show-exercise" routerLink="/exercises/{{exercise.id}}">
+            <span class="material-icons text-info">
+              search
+            </span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <nav>
+    <ul class="pagination justify-content-center">
+      <li class="page-item" *ngIf="this.currentPage > 1">
+        <a class="page-link" (click)="previousPage()">Anterior</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" *ngIf="this.currentPage > 1">
+          {{this.currentPage - 1}}
+        </a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">{{this.currentPage}}</a></li>
+      <li class="page-item" *ngIf="this.currentPage < this.totalPages">
+        <a class="page-link" href="#">{{this.currentPage + 1}}</a>
+      </li>
+      <li class="page-item" *ngIf="this.currentPage < this.totalPages">
+        <a class="page-link" (click)="nextPage()">Próximo</a>
+      </li>
+    </ul>
+  </nav>
+</main>
