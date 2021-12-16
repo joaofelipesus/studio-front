@@ -14,7 +14,7 @@
       <tr *ngFor="let exercise of this.exercises">
         <td>{{exercise.name}}</td>
         <td>
-          <a class="btn btn-sm btn-outline-info text-info" routerLink="/exercises/{{exercise.id}}">
+          <a class="btn btn-sm btn-outline-info text-info show-exercise" routerLink="/exercises/{{exercise.id}}">
             <span class="material-icons text-info">
               search
             </span>
@@ -43,5 +43,4 @@
       </li>
     </ul>
   </nav>
-
 </main>
