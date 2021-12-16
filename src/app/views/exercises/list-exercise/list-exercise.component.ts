@@ -36,7 +36,7 @@ export class ListExerciseComponent implements OnInit {
       )
   }
 
-  previousPage(){
+  previousPage() {
     this.service.list(this.tableMetadata.currentPage - 1)
       .subscribe(
         response => this.updateTableContent(response),
