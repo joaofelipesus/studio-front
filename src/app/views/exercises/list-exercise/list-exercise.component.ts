@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
-import { HeaderHandlerService } from 'src/app/services/header-handler.service';
-import { environment } from 'src/environments/environment';
+import { ExerciseService } from 'src/app/services/exercise.service';
+import { TableMetadata } from 'src/app/components/table/table_metadata'
+import { PaginatorService } from 'src/app/services/paginator.service'
 
 @Component({
   selector: 'app-list-exercise',
@@ -16,42 +16,36 @@ export class ListExerciseComponent implements OnInit {
   totalPages: number;
   currentPage: number;
 
-  constructor(private httpClient: HttpClient, private headers: HeaderHandlerService) { }
+  tableMetadata : TableMetadata = new TableMetadata();
+
+  constructor(private service: ExerciseService) {}
 
   ngOnInit(): void {
-    this.httpClient.get(`${environment.apiURL}/exercises`, this.headers.call())
+    this.service.list()
       .subscribe(
-        response => {
-          this.exercises = response['exercises'].map(exercise => ExerciseFactory.build(exercise));
-          this.totalPages = response['total_pages'];
-          this.currentPage = response['current_page'];
-        },
+        response => this.updateTableContent(response),
         error => console.log(error)
       )
   }
 
   nextPage(){
-    this.httpClient.get(`${environment.apiURL}/exercises?page=${this.currentPage + 1}`, this.headers.call())
+    this.service.list(this.tableMetadata.currentPage + 1)
       .subscribe(
-        response => {
-          this.exercises = response['exercises'].map(exercise => ExerciseFactory.build(exercise));
-          this.totalPages = response['total_pages'];
-          this.currentPage = Number(response['current_page']);
-        },
+        response => this.updateTableContent(response),
         error => console.log(error)
       )
   }
 
   previousPage(){
-    this.httpClient.get(`${environment.apiURL}/exercises?page=${this.currentPage - 1}`, this.headers.call())
+    this.service.list(this.tableMetadata.currentPage - 1)
       .subscribe(
-        response => {
-          this.exercises = response['exercises'].map(exercise => ExerciseFactory.build(exercise));
-          this.totalPages = response['total_pages'];
-          this.currentPage = Number(response['current_page']);
-        },
+        response => this.updateTableContent(response),
         error => console.log(error)
       )
+  }
+
+  private updateTableContent(response){
+    this.tableMetadata = PaginatorService.call(response, ExerciseFactory, 'exercises')
   }
 
 }
