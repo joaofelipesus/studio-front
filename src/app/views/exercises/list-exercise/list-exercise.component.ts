@@ -12,40 +12,28 @@ import { PaginatorService } from 'src/app/services/paginator.service'
 })
 export class ListExerciseComponent implements OnInit {
 
-  exercises: Exercise[] = [];
-  totalPages: number;
-  currentPage: number;
-
   tableMetadata : TableMetadata = new TableMetadata();
 
   constructor(private service: ExerciseService) {}
 
   ngOnInit(): void {
-    this.service.list()
-      .subscribe(
-        response => this.updateTableContent(response),
-        error => console.log(error)
-      )
+    this.updateTableContent(this.tableMetadata.currentPage);
   }
 
   nextPage(){
-    this.service.list(this.tableMetadata.currentPage + 1)
-      .subscribe(
-        response => this.updateTableContent(response),
-        error => console.log(error)
-      )
+    this.updateTableContent(this.tableMetadata.currentPage + 1);
   }
 
   previousPage() {
-    this.service.list(this.tableMetadata.currentPage - 1)
-      .subscribe(
-        response => this.updateTableContent(response),
-        error => console.log(error)
-      )
+    this.updateTableContent(this.tableMetadata.currentPage - 1);
   }
 
-  private updateTableContent(response){
-    this.tableMetadata = PaginatorService.call(response, ExerciseFactory, 'exercises')
+  private updateTableContent(page) {
+    this.service.list(page)
+      .subscribe(
+        response => this.tableMetadata = PaginatorService.call(response, ExerciseFactory, 'exercises'),
+        error => console.log(error)
+      )
   }
 
 }
