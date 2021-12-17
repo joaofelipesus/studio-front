@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { HeaderHandlerService } from 'src/app/services/header-handler.service'
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
 import { ErrorHandlerService } from 'src/app/services/error-handler.service';
+import { ExerciseService } from 'src/app/services/exercise.service';
 
 @Component({
   selector: 'app-show-exercise',
@@ -17,12 +15,12 @@ export class ShowExerciseComponent implements OnInit {
   errorMessage: String = "";
   exercise: Exercise = new Exercise();
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private headerHandler: HeaderHandlerService) { }
+  constructor(private route: ActivatedRoute, private service: ExerciseService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.exercise.id = params.get("id");
-      this.httpClient.get(`${environment.apiURL}/exercises/${this.exercise.id}`, this.headerHandler.call())
+      this.service.get(this.exercise.id)
         .subscribe(
           response => this.exercise = ExerciseFactory.build(response),
           error => this.errorMessage = ErrorHandlerService.call(error.status, "Exercício")
