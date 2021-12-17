@@ -10,13 +10,14 @@ import { PersonalComponent } from './views/home/personal/personal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'home/personal', component: PersonalComponent},
-  {path: 'exercises/new', component: CreateExerciseComponent},
-  {path: 'exercises/:id', component: ShowExerciseComponent},
-  {path: 'exercises/:id/edit', component: UpdateExerciseComponent},
-  {path: 'exercises', component: ListExerciseComponent}
+  {path: 'home', loadChildren: () => import('src/app/home/home.module').then((m) => m.HomeModule) }
+  // {path: 'home', component: HomeComponent},
+  // {path: 'login', component: LoginComponent},
+  // {path: 'home/personal', component: PersonalComponent},
+  // {path: 'exercises/new', component: CreateExerciseComponent},
+  // {path: 'exercises/:id', component: ShowExerciseComponent},
+  // {path: 'exercises/:id/edit', component: UpdateExerciseComponent},
+  // {path: 'exercises', component: ListExerciseComponent}
 ];
 
 @NgModule({
