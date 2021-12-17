@@ -11,7 +11,7 @@
       <th></th>
     </thead>
     <tbody>
-      <tr *ngFor="let exercise of this.exercises">
+      <tr *ngFor="let exercise of this.tableMetadata?.elements">
         <td>{{exercise.name}}</td>
         <td>
           <a class="btn btn-sm btn-outline-info text-info show-exercise" routerLink="/exercises/{{exercise.id}}">
@@ -26,19 +26,19 @@
 
   <nav>
     <ul class="pagination justify-content-center">
-      <li class="page-item" *ngIf="this.currentPage > 1">
+      <li class="page-item" *ngIf="this.tableMetadata.currentPage > 1">
         <a class="page-link" (click)="previousPage()">Anterior</a>
       </li>
       <li class="page-item">
-        <a class="page-link" href="#" *ngIf="this.currentPage > 1">
-          {{this.currentPage - 1}}
+        <a class="page-link" href="#" *ngIf="this.tableMetadata.currentPage > 1">
+          {{this.tableMetadata.currentPage - 1}}
         </a>
       </li>
-      <li class="page-item active"><a class="page-link" href="#">{{this.currentPage}}</a></li>
-      <li class="page-item" *ngIf="this.currentPage < this.totalPages">
-        <a class="page-link" href="#">{{this.currentPage + 1}}</a>
+      <li class="page-item active"><a class="page-link" href="#">{{this.tableMetadata.currentPage}}</a></li>
+      <li class="page-item" *ngIf="this.tableMetadata.currentPage < this.tableMetadata.totalPages">
+        <a class="page-link" href="#">{{this.tableMetadata.currentPage + 1}}</a>
       </li>
-      <li class="page-item" *ngIf="this.currentPage < this.totalPages">
+      <li class="page-item" *ngIf="this.tableMetadata.currentPage < this.tableMetadata.totalPages">
         <a class="page-link" (click)="nextPage()">Próximo</a>
       </li>
     </ul>

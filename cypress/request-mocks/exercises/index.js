@@ -2,7 +2,7 @@ function interceptExerciseListRequest(cy) {
   cy.intercept(
     {
       method: 'GET',
-      url: '/api/exercises'
+      url: '/api/exercises?page=1'
     },
     {
       "exercises": [
