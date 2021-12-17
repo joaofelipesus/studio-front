@@ -10,7 +10,7 @@ import { PersonalComponent } from './views/home/personal/personal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', loadChildren: () => import('src/app/home/home.module').then((m) => m.HomeModule) }
+  {path: 'home', loadChildren: () => import('src/app/modules/home/home.module').then((m) => m.HomeModule) }
   // {path: 'home', component: HomeComponent},
   // {path: 'login', component: LoginComponent},
   // {path: 'home/personal', component: PersonalComponent},

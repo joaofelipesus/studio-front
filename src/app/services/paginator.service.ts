@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TableMetadata } from '../components/table/table_metadata';
+import { TableMetadata } from '../OLD_components/table/table_metadata';
 
 @Injectable({
   providedIn: 'root'
