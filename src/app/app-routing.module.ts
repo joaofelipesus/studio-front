@@ -5,7 +5,6 @@ import { ListExerciseComponent } from './views/exercises/list-exercise/list-exer
 import { ShowExerciseComponent } from './views/exercises/show-exercise/show-exercise.component';
 import { UpdateExerciseComponent } from './views/exercises/update-exercise/update-exercise.component';
 import { HomeComponent } from './views/home/home/home.component';
-import { LoginComponent } from './views/home/login/login.component';
 import { PersonalComponent } from './views/home/personal/personal.component';
 
 const routes: Routes = [
