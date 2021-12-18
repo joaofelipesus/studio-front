@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +10,15 @@ export class NavbarComponent implements OnInit {
 
   private SESSION_KEY = 'authToken';
 
-  constructor(private router: Router) { }
+  displayNavbar: boolean = false;
+
+  constructor(private router: Router) {
+    router.events.subscribe(_val => this.displayNavbar = false);
+  }
+
+  renderNavbar() : void {
+    this.displayNavbar = true;
+  }
 
   ngOnInit(): void {}
 
@@ -25,6 +33,10 @@ export class NavbarComponent implements OnInit {
   logout() : void {
     localStorage.removeItem(this.SESSION_KEY);
     this.router.navigateByUrl('');
+  }
+
+  toggleNavbar(){
+    this.displayNavbar = !this.displayNavbar;
   }
 
 }
