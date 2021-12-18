@@ -24,6 +24,9 @@ export class PersonalAuthenticatedGuard implements CanActivate {
           this.redirectToLoginPage();
           localStorage.removeItem(this.SESSION_KEY)
           return false;
+        } else if(this.isTokenExpired(session)) {
+          this.redirectToLoginPage();
+          return false;
         }
       }
       return true;
@@ -31,11 +34,15 @@ export class PersonalAuthenticatedGuard implements CanActivate {
 
   private isPersonal(session) : boolean {
     const sessionData = jwtDecode(session);
-    return true
+    return sessionData['kind'] === 'personal';
+  }
+
+  private isTokenExpired(session) : boolean {
+    const sessionData = jwtDecode(session);
+    return (Math.floor((new Date).getTime() / 1000)) >= sessionData['exp']
   }
 
   private redirectToLoginPage() : void {
     this.router.navigateByUrl('home/login');
   }
-
 }

@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home/home.component';
-// import { LoginComponent } from './views/home/OLD_login/login.component';
 import { HomeNavbarComponent } from './views/home/home-navbar/home-navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
@@ -42,7 +40,7 @@ import { ComponentsModule } from 'src/app/components/components.module'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
