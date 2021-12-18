@@ -17,6 +17,8 @@ import { FormErrorMessagesComponent } from './views/shared/form-error-messages/f
 import { UpdateExerciseComponent } from './views/exercises/update-exercise/update-exercise.component';
 import { ListExerciseComponent } from './views/exercises/list-exercise/list-exercise.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormErrorsComponent } from './components/form-errors/form-errors.component';
+import { ComponentsModule } from 'src/app/components/components.module'
 
 @NgModule({
   declarations: [
@@ -33,13 +35,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UpdateExerciseComponent,
     ListExerciseComponent,
     NavbarComponent,
+    // FormErrorsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

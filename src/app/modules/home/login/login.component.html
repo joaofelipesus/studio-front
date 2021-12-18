@@ -5,6 +5,15 @@
     </div>
     <div class="card-body">
       <form (ngSubmit)="login()">
+        <app-form-errors [errors]="this.errors"></app-form-errors>
+
+        <!-- {{ this.errors.length }}
+
+        <ul *ngIf="this.errors.length > 0">
+          <li class="text-red" *ngFor="let error of this.errors">{{ error }}</li>
+        </ul> -->
+
+
         <div class="mb-3">
           <label for="email">Email</label>
           <input type="email" [(ngModel)]="email" name="email" required class="form-control" />
