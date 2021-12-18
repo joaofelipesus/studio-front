@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
 import { ExerciseService } from 'src/app/services/exercise.service';
-import { TableMetadata } from 'src/app/components/table/table_metadata'
+import { TableMetadata } from 'src/app/OLD_components/table/table_metadata'
 import { PaginatorService } from 'src/app/services/paginator.service'
 
 @Component({

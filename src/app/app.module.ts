@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home/home.component';
-import { LoginComponent } from './views/home/login/login.component';
+// import { LoginComponent } from './views/home/OLD_login/login.component';
 import { HomeNavbarComponent } from './views/home/home-navbar/home-navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
@@ -16,11 +16,15 @@ import { ErrorHandlerComponent } from './views/shared/error-handler/error-handle
 import { FormErrorMessagesComponent } from './views/shared/form-error-messages/form-error-messages.component';
 import { UpdateExerciseComponent } from './views/exercises/update-exercise/update-exercise.component';
 import { ListExerciseComponent } from './views/exercises/list-exercise/list-exercise.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormErrorsComponent } from './components/form-errors/form-errors.component';
+import { ComponentsModule } from 'src/app/components/components.module'
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    // LoginComponent,
     HomeNavbarComponent,
     PersonalComponent,
     PersonalNavbarComponent,
@@ -29,13 +33,16 @@ import { ListExerciseComponent } from './views/exercises/list-exercise/list-exer
     ErrorHandlerComponent,
     FormErrorMessagesComponent,
     UpdateExerciseComponent,
-    ListExerciseComponent
+    ListExerciseComponent,
+    NavbarComponent,
+    // FormErrorsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
