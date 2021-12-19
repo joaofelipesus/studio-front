@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-navbar',
@@ -33,6 +34,15 @@ export class NavbarComponent implements OnInit {
 
   toggleNavbar(){
     this.displayNavbar = !this.displayNavbar;
+  }
+
+  isPersonal(){
+    const session = localStorage.getItem(this.SESSION_KEY);
+    if(session === null)
+      return false
+
+    const userKind = jwtDecode(session);
+    return userKind['kind'] === 'personal';
   }
 
 }

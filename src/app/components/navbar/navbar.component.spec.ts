@@ -51,4 +51,13 @@ describe('NavbarComponent', () => {
   it('#loggedIn should return false if localStorage DONT contains key authToken', () => {
     expect(component.logedIn()).toBeFalsy()
   })
+
+  it('#isPersonal should return true when current user is a personal', () => {
+    localStorage.setItem('authToken', 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZDZjMmJmN2MtYzYxNC00NzFjLWI2MzUtZjhmOGZjNDk4OTYzIiwia2luZCI6InBlcnNvbmFsIiwiZXhwIjoxNjM5ODk2OTAyfQ.9r7U17YASx_12nTvpHitpVBQ01eB7Fgo0NitgXYdPXc');
+    expect(component.isPersonal()).toBeTruthy();
+  })
+
+  it('#isPersonal should return false when current user dont have an authToken', () => {
+    expect(component.isPersonal()).toBeFalsy();
+  })
 });
