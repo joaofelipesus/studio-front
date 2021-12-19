@@ -31,46 +31,4 @@ export class LoginComponent implements OnInit {
         error => this.errors = error.error.errors as Array<String>
       )
   }
-
-
-
-
-
-
-  // email: string = '';
-  // password: string = ''
-
-  // renderError: boolean = false;
-  // errorMessage: string = "";
-
-  // private apiURL = `${environment.apiURL}/users/login`;
-
-  // constructor(private httpClient: HttpClient, private router: Router) {}
-
-  // ngOnInit(): void {}
-
-  // login(){
-  //   let params = {email: this.email, password: this.password}
-  //   // this.httpClient.post(this.apiURL, params).subscribe(
-  //   //   response => this.authenticate(response),
-  //   //   error => this.renderErrorMessage(error)
-  //   // );
-  //   console.log(params)
-  // }
-
-  // private authenticate(response):void{
-  //   const token = response['token'];
-  //   localStorage.setItem("authToken", token);
-  //   this.router.navigateByUrl("home/personal")
-  // }
-
-  // private renderErrorMessage(error):void{
-  //   this.renderError = true;
-  //   if(error.status == 403) {
-  //     this.errorMessage = "Email e/ou senha inválido(s)";
-  //   } else {
-  //     this.errorMessage = "Houve uma falha inesperada, por favor tente novamente em alguns instantes."
-  //   }
-  // }
-
 }
