@@ -16,10 +16,6 @@ export class NavbarComponent implements OnInit {
     router.events.subscribe(_val => this.displayNavbar = false);
   }
 
-  renderNavbar() : void {
-    this.displayNavbar = true;
-  }
-
   ngOnInit(): void {}
 
   logedIn() : boolean {

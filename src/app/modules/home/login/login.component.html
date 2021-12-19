@@ -7,21 +7,14 @@
       <form (ngSubmit)="login()">
         <app-form-errors [errors]="this.errors"></app-form-errors>
 
-        <!-- {{ this.errors.length }}
-
-        <ul *ngIf="this.errors.length > 0">
-          <li class="text-red" *ngFor="let error of this.errors">{{ error }}</li>
-        </ul> -->
-
-
         <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" [(ngModel)]="email" name="email" required class="form-control" />
+          <input type="email" [(ngModel)]="email" name="email" required class="form-control" id="email" />
         </div>
 
         <div class="mb-3">
           <label for="password">Senha</label>
-          <input type="password" [(ngModel)]="password" name="password" class="form-control" />
+          <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" />
         </div>
 
         <button class="btn btn-primary">
