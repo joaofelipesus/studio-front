@@ -9,7 +9,6 @@ export class FormErrorsComponent implements OnInit {
 
   @Input()
   errors: string[] = []
-  // errors = [];formErrors: string[] = []
 
   constructor() { }
 
