@@ -11,7 +11,9 @@ import { ExerciseService } from 'src/app/modules/exercise/services/exercise.serv
 })
 export class NewExerciseComponent implements OnInit {
 
-  muscularGrous: Array<MuscularGroup> = [];
+  muscularGroups: Array<MuscularGroup> = [];
+
+  formErrors: Array<String> = [];
 
   name: string = '';
   muscularGroupId: string = '';
@@ -21,14 +23,13 @@ export class NewExerciseComponent implements OnInit {
   ngOnInit(): void {
     this.muscularGroupService.list()
       .subscribe(response => {
-        this.muscularGrous = response['muscular_groups'].map(m => MuscularGroupFactory.build(m));
+        this.muscularGroups = response['muscular_groups'].map(m => MuscularGroupFactory.build(m));
         },
         error => console.log(error)
       )
   }
 
   // todo:
-  //   - testar componente de mensagens de erro!
   //   - salvar exercicio
   //   - testar se chama o service.create
   //   - testar e2e
@@ -44,7 +45,11 @@ export class NewExerciseComponent implements OnInit {
         console.log(response)
       },
       error => {
-        console.log(error)
+        if(error.status === 400) {
+          this.formErrors = error.error.errors;
+        } else {
+          console.log(error)
+        }
       })
   }
 
