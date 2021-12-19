@@ -1,6 +1,6 @@
 export class MuscularGroup {
-  id: string = '';
-  name: string = '';
-
-  constructor() {}
+  constructor(
+    public id?: string,
+    public name?: string
+  ) {}
 }

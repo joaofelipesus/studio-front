@@ -21,5 +21,9 @@ describe('MuscularGroupService', () => {
     expect(service).toBeTruthy();
   });
 
-  xit('#list should return an observable')
+  it('#list should return an observable', () => {
+    localStorage.setItem('authToken', '1q2w3e4r');
+    service.list();
+    expect(httpClientSpy.get.calls.count()).toBe(1);
+  })
 });

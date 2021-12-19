@@ -7,6 +7,7 @@ export class HeaderHandlerService {
 
   constructor() { }
 
+  // TODO: remove!
   // Setup request headers.
   call() : Object {
     return this.setupHeaders();
@@ -19,13 +20,6 @@ export class HeaderHandlerService {
       throw "User doesn't have a session!"
     }
 
-    // return {
-    //   headers: {
-    //     'Authorization': `Bearer ${token}`,
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json'
-    //   }
-    // };
     return this.headers(token);
   }
 
