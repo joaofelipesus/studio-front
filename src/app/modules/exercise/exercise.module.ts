@@ -6,10 +6,18 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { FormsModule } from '@angular/forms';
 import { ShowExerciseComponent } from './show-exercise/show-exercise.component';
 import { ListExerciseComponent } from './list-exercise/list-exercise.component';
+import { UpdateExerciseComponent } from './update-exercise/update-exercise.component';
+import { EditExerciseComponent } from './edit-exercise/edit-exercise.component';
 
 
 @NgModule({
-  declarations: [NewExerciseComponent, ShowExerciseComponent, ListExerciseComponent],
+  declarations: [
+    NewExerciseComponent,
+    ShowExerciseComponent,
+    ListExerciseComponent,
+    UpdateExerciseComponent,
+    EditExerciseComponent
+  ],
   imports: [
     CommonModule,
     ExerciseRoutingModule,

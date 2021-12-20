@@ -31,10 +31,6 @@ export class NewExerciseComponent implements OnInit {
       )
   }
 
-  // todo:
-  //   - testar se chama o service.create
-  //   - testar e2e
-  //   - extrair componente form ?
   save() : void {
     const exercise = {
       name: this.name,
