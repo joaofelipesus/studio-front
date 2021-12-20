@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Exercise } from 'src/app/models/exercise';
 import { MuscularGroup } from 'src/app/models/muscular_group';
 import { ExerciseService } from '../services/exercise.service';
@@ -18,7 +18,7 @@ export class EditExerciseComponent implements OnInit {
   errorMessages: Array<String> = [];
   muscularGroups: Array<MuscularGroup> = [];
 
-  constructor(private route: ActivatedRoute, private service: ExerciseService,
+  constructor(private route: ActivatedRoute, private service: ExerciseService, private router: Router,
               private muscularGroupService: MuscularGroupService) { }
 
   ngOnInit(): void {
@@ -38,12 +38,23 @@ export class EditExerciseComponent implements OnInit {
     })
   }
 
-  save() {}
+  save() {
+    this.service.update(this.exercise)
+      .subscribe(
+        response => {
+          const updatedExercise = ExerciseFactory.build(response);
+          this.router.navigateByUrl(`exercises/${updatedExercise.id}`)
+        },
+        error => this.handleError(error)
+      )
+  }
 
   private handleError(error) : void {
     {
       if (error.status === 404)
-        this.errorMessages = ["Exercício não encontrado"]
+        this.errorMessages = ["Exercício não encontrado"];
+      else if (error.status === 400)
+        this.errorMessages = error.error.errors;
       else
         console.log(error)
     }

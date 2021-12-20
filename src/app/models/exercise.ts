@@ -9,7 +9,4 @@ export class Exercise {
   ) {
     muscularGroup = new MuscularGroup();
   }
-  // constructor(){
-  //   this.muscularGroup = new MuscularGroup();
-  // }
 }

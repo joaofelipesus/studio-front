@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { Exercise } from 'src/app/models/exercise';
 
 import { ExerciseService } from './exercise.service';
 
 describe('ExerciseService', () => {
   let service: ExerciseService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let exercise: Exercise = new Exercise('Some name', '1q2w3e4r5t6y');
+
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get','post', 'put']);
@@ -25,7 +28,7 @@ describe('ExerciseService', () => {
   });
 
   it('#create should call post method', () => {
-    service.create({ name: 'Some name', muscular_group_id: '1q2w3e4r' });
+    service.create(exercise);
     expect(httpClientSpy.post.calls.count()).toBe(1);
   })
 
@@ -37,5 +40,10 @@ describe('ExerciseService', () => {
   it('#find should call get method', () => {
     service.find('1q2w3e4r5t')
     expect(httpClientSpy.get.calls.count()).toBe(1);
+  })
+
+  it('#update should call put method', () => {
+    service.update('1q2w3e4r', exercise);
+    expect(httpClientSpy.put.calls.count()).toBe(1);
   })
 });
