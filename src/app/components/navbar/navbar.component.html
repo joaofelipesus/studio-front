@@ -15,7 +15,18 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" id="new-exercise" routerLink='exercises/new'>Novo</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a id="list-exercise" class="dropdown-item" routerLink="exercises">Exercícios</a></li>
+            <li><a id="list-exercise" class="dropdown-item" routerLink="exercises">Buscar</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="isPersonal()">
+          <a class="nav-link dropdown-toggle" href="#" id="exercise-options" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Aluno
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" id="new-student" routerLink='students/new'>Novo</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a id="list-student" class="dropdown-item" routerLink="students">Buscar</a></li>
           </ul>
         </li>
         <li class="nav-item">
