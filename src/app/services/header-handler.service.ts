@@ -7,12 +7,6 @@ export class HeaderHandlerService {
 
   constructor() { }
 
-  // TODO: remove!
-  // Setup request headers.
-  call() : Object {
-    return this.setupHeaders();
-  }
-
   // Setup request headers.
   setupHeaders() {
     const token = localStorage.getItem("authToken");
