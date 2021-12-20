@@ -3,9 +3,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Exercise } from 'src/app/models/exercise';
 import { MuscularGroup } from 'src/app/models/muscular_group';
 import { ExerciseService } from '../services/exercise.service';
-import { MuscularGroupService } from 'src/app/services/muscular-group.service';
 import { MuscularGroupFactory } from 'src/app/factories/muscular_group_factory';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
+import { MuscularGroupService } from '../services/muscular-group.service'
 
 @Component({
   selector: 'app-edit-exercise',

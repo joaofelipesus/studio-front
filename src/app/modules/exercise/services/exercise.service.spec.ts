@@ -43,7 +43,7 @@ describe('ExerciseService', () => {
   })
 
   it('#update should call put method', () => {
-    service.update('1q2w3e4r', exercise);
+    service.update(exercise);
     expect(httpClientSpy.put.calls.count()).toBe(1);
   })
 });

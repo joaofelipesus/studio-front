@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MuscularGroupFactory } from 'src/app/factories/muscular_group_factory';
 import { MuscularGroup } from 'src/app/models/muscular_group';
-import { MuscularGroupService } from 'src/app/services/muscular-group.service';
+import { MuscularGroupService } from '../services/muscular-group.service'
 import { ExerciseService } from 'src/app/modules/exercise/services/exercise.service';
 import { Router } from '@angular/router';
 import { Exercise } from 'src/app/models/exercise';
@@ -14,11 +14,7 @@ import { Exercise } from 'src/app/models/exercise';
 export class NewExerciseComponent implements OnInit {
 
   muscularGroups: Array<MuscularGroup> = [];
-
   formErrors: Array<String> = [];
-
-  // name: string = '';
-  // muscularGroupId: string = '';
   exercise: Exercise = new Exercise();
 
   saveMethod = this.save
