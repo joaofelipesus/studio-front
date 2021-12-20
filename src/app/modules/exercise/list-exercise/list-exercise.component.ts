@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
+import { TableMetadata } from 'src/app/OLD_components/table/table_metadata';
+import { PaginatorService } from 'src/app/services/paginator.service';
 import { ExerciseService } from '../services/exercise.service';
 
 @Component({
@@ -20,13 +22,21 @@ export class ListExerciseComponent implements OnInit {
   constructor(private service: ExerciseService) { }
 
   ngOnInit(): void {
-    this.service.list()
+    this.updateTableContent(1);
+  }
+
+  nextPage(){
+    this.updateTableContent(this.tableMetadata.currentPage + 1);
+  }
+
+  previousPage() {
+    this.updateTableContent(this.tableMetadata.currentPage - 1);
+  }
+
+  private updateTableContent(page) {
+    this.service.list(page)
       .subscribe(
-        response => {
-          this.tableMetadata.elements = response['exercises'].map(e => ExerciseFactory.build(e))
-          this.tableMetadata.totalPages = response['total_pages']
-          this.tableMetadata.currentPage = response['current_page']
-        },
+        response => this.tableMetadata = PaginatorService.call(response, ExerciseFactory, 'exercises'),
         error => console.log(error)
       )
   }

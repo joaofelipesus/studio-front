@@ -17,8 +17,11 @@ export class NewExerciseComponent implements OnInit {
 
   formErrors: Array<String> = [];
 
-  name: string = '';
-  muscularGroupId: string = '';
+  // name: string = '';
+  // muscularGroupId: string = '';
+  exercise: Exercise = new Exercise();
+
+  saveMethod = this.save
 
   constructor(private muscularGroupService: MuscularGroupService, private service: ExerciseService,
     private router: Router) { }
@@ -29,13 +32,11 @@ export class NewExerciseComponent implements OnInit {
         this.muscularGroups = response['muscular_groups'].map(m => MuscularGroupFactory.build(m));
         },
         error => console.log(error)
-      )
+    )
   }
 
   save() : void {
-    const exerciseParams = new Exercise(null, this.name, this.muscularGroupId);
-
-    console.log(exerciseParams)
+    const exerciseParams = new Exercise(null, this.exercise.name, this.exercise.muscularGroupId);
 
     this.service.create(exerciseParams)
       .subscribe(response => {
@@ -49,5 +50,4 @@ export class NewExerciseComponent implements OnInit {
         }
       })
   }
-
 }
