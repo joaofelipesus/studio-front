@@ -20,4 +20,8 @@ export class ExerciseService {
   find(id: string) : Observable<any> {
     return this.httpClient.get(`${this.BASE_ROUTE}/${id}`, this.headerService.setupHeaders());
   }
+
+  list(page = 1) {
+    return this.httpClient.get(`${this.BASE_ROUTE}?page=${page}`, this.headerService.setupHeaders());
+  }
 }

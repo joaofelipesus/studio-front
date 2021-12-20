@@ -21,14 +21,18 @@ export class ShowExerciseComponent implements OnInit {
       this.exercise.id = params.get("id");
       this.service.find(this.exercise.id).subscribe(
         response => this.exercise = ExerciseFactory.build(response),
-        error => {
-          if (error.status === 404)
-            this.errorMessages = ["Exercício não encontrado"]
-          else
-            console.log(error)
-        }
-        )
+        error => this.handleError(error)
+      )
     })
+  }
+
+  private handleError(error) : void {
+    {
+      if (error.status === 404)
+        this.errorMessages = ["Exercício não encontrado"]
+      else
+        console.log(error)
+    }
   }
 
 }

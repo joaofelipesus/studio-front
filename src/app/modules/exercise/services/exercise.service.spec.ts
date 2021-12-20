@@ -28,4 +28,14 @@ describe('ExerciseService', () => {
     service.create({ name: 'Some name', muscular_group_id: '1q2w3e4r' });
     expect(httpClientSpy.post.calls.count()).toBe(1);
   })
+
+  it('#list should call get method', () => {
+    service.list()
+    expect(httpClientSpy.get.calls.count()).toBe(1);
+  })
+
+  it('#find should call get method', () => {
+    service.find('1q2w3e4r5t')
+    expect(httpClientSpy.get.calls.count()).toBe(1);
+  })
 });
