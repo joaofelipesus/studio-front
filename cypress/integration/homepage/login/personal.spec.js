@@ -1,6 +1,6 @@
 import { personalDoLogin } from "../../../helpers/user_actions";
 
-describe('example to-do app', () => {
+describe('home personal do login', () => {
   beforeEach(() => {
     cy.request('POST', 'localhost:3000/api/e2e/setup')
     cy.visit('http://localhost:4200/');

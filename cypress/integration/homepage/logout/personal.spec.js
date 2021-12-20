@@ -1,6 +1,6 @@
 import { personalDoLogin} from '../../../helpers/user_actions';
 
-describe('example to-do app', () => {
+describe('user logout', () => {
   it('navigates user to home path', () => {
     personalDoLogin(cy);
     cy.get('#nav-dropdown').click();

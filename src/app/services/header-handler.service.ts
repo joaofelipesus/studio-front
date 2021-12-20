@@ -8,8 +8,16 @@ export class HeaderHandlerService {
   constructor() { }
 
   // Setup request headers.
-  call() : Object {
+  setupHeaders() {
     const token = localStorage.getItem("authToken");
+    if(!token) {
+      throw "User doesn't have a session!"
+    }
+
+    return this.headers(token);
+  }
+
+  private headers(token) : Object {
     return {
       headers: {
         'Authorization': `Bearer ${token}`,

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
-import { ErrorHandlerService } from 'src/app/services/error-handler.service';
-import { ExerciseService } from 'src/app/services/exercise.service';
+import { ExerciseService } from '../services/exercise.service';
 
 @Component({
   selector: 'app-show-exercise',
@@ -12,20 +11,28 @@ import { ExerciseService } from 'src/app/services/exercise.service';
 })
 export class ShowExerciseComponent implements OnInit {
 
-  errorMessage: String = "";
   exercise: Exercise = new Exercise();
+  errorMessages : Array<String> = []
 
-  constructor(private route: ActivatedRoute, private service: ExerciseService) { }
+  constructor(private service: ExerciseService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.exercise.id = params.get("id");
-      this.service.get(this.exercise.id)
-        .subscribe(
-          response => this.exercise = ExerciseFactory.build(response),
-          error => this.errorMessage = ErrorHandlerService.call(error.status, "Exercício")
-        )
-    });
+      this.service.find(this.exercise.id).subscribe(
+        response => this.exercise = ExerciseFactory.build(response),
+        error => this.handleError(error)
+      )
+    })
+  }
+
+  private handleError(error) : void {
+    {
+      if (error.status === 404)
+        this.errorMessages = ["Exercício não encontrado"]
+      else
+        console.log(error)
+    }
   }
 
 }

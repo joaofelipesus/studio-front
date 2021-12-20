@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { ErrorHandlerComponent } from './error-handler.component';
+// import { NewExerciseComponent } from './new-exercise.component';
 
-// describe('ErrorHandlerComponent', () => {
-//   let component: ErrorHandlerComponent;
-//   let fixture: ComponentFixture<ErrorHandlerComponent>;
+// describe('NewExerciseComponent', () => {
+//   let component: NewExerciseComponent;
+//   let fixture: ComponentFixture<NewExerciseComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ ErrorHandlerComponent ]
+//       declarations: [ NewExerciseComponent ]
 //     })
 //     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(ErrorHandlerComponent);
+//     fixture = TestBed.createComponent(NewExerciseComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

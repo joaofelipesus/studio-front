@@ -1,0 +1,28 @@
+<main class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="text-center">Novo exercício</h2>
+    </div>
+    <div class="card-body">
+      <form class="form" (ngSubmit)="save()">
+        <app-form-errors [errors]="formErrors"></app-form-errors>
+
+        <div class="mb-3">
+          <label for="name">Nome</label>
+          <input type="text" class="form-control" [(ngModel)]="exercise.name" name="name" id="name" autofocus />
+        </div>
+        <div class="mb-3">
+          <label for="muscular-group-id">Grupo muscular</label>
+          <select name="muscularGroupId" id="muscularGroupId" [(ngModel)]="exercise.muscularGroupId" class="form-select">
+            <option value="{{ muscularGroup.id }}" *ngFor="let muscularGroup of muscularGroups">
+              {{ muscularGroup.name }}
+            </option>
+          </select>
+        </div>
+        <button class="btn btn-primary">
+          Salvar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

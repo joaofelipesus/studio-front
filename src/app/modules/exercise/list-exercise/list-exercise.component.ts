@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
-import { ExerciseService } from 'src/app/services/exercise.service';
-import { TableMetadata } from 'src/app/OLD_components/table/table_metadata'
-import { PaginatorService } from 'src/app/services/paginator.service'
+import { PaginatorService } from 'src/app/services/paginator.service';
+import { ExerciseService } from '../services/exercise.service';
 
 @Component({
   selector: 'app-list-exercise',
@@ -12,12 +11,17 @@ import { PaginatorService } from 'src/app/services/paginator.service'
 })
 export class ListExerciseComponent implements OnInit {
 
-  tableMetadata : TableMetadata = new TableMetadata();
+  exercises : Array<Exercise> = [];
+  tableMetadata: any = {
+    currentPage: 1,
+    totalPages: 1,
+    elements: []
+  };
 
-  constructor(private service: ExerciseService) {}
+  constructor(private service: ExerciseService) { }
 
   ngOnInit(): void {
-    this.updateTableContent(this.tableMetadata.currentPage);
+    this.updateTableContent(1);
   }
 
   nextPage(){
