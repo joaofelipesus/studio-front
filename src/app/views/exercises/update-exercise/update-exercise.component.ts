@@ -45,7 +45,7 @@ export class UpdateExerciseComponent implements OnInit {
   save(){
     const body = {
       name: this.exercise.name,
-      muscular_group_id: this.exercise.muscular_group_id
+      muscular_group_id: this.exercise.muscularGroupId
     }
 
     this.service.update(this.exercise.id, body)
