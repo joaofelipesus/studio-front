@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseFactory } from 'src/app/factories/exercise_factory';
 import { Exercise } from 'src/app/models/exercise';
-import { TableMetadata } from 'src/app/OLD_components/table/table_metadata';
 import { PaginatorService } from 'src/app/services/paginator.service';
 import { ExerciseService } from '../services/exercise.service';
 
@@ -13,7 +12,7 @@ import { ExerciseService } from '../services/exercise.service';
 export class ListExerciseComponent implements OnInit {
 
   exercises : Array<Exercise> = [];
-  tableMetadata = {
+  tableMetadata: any = {
     currentPage: 1,
     totalPages: 1,
     elements: []
