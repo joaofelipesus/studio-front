@@ -1,13 +1,17 @@
 import { Exercise } from "../models/exercise";
+import { MuscularGroup } from "../models/muscular_group";
 
 export class ExerciseFactory {
   static build(params) : Exercise {
-    const exercise_params = params["exercise"];
-    let exercise = new Exercise();
-    exercise.id = exercise_params["id"];
-    exercise.name = exercise_params["name"];
-    exercise.muscularGroup.name = exercise_params["muscular_group"]["name"];
-    exercise.muscular_group_id = exercise_params["muscular_group_id"]
-    return exercise;
+    const exerciseParams = params["exercise"];
+    return new Exercise(
+      exerciseParams.id,
+      exerciseParams.name,
+      exerciseParams.muscular_group_id,
+      new MuscularGroup(
+        exerciseParams.muscular_group_id,
+        exerciseParams.muscular_group.name
+      )
+    );
   }
 }
