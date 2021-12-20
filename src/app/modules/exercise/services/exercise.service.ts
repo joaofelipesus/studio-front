@@ -16,4 +16,8 @@ export class ExerciseService {
   create(exercise) : Observable<any> {
     return this.httpClient.post(this.BASE_ROUTE, exercise, this.headerService.setupHeaders());
   }
+
+  find(id: string) : Observable<any> {
+    return this.httpClient.get(`${this.BASE_ROUTE}/${id}`, this.headerService.setupHeaders());
+  }
 }

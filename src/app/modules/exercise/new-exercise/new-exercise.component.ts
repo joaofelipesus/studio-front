@@ -3,6 +3,7 @@ import { MuscularGroupFactory } from 'src/app/factories/muscular_group_factory';
 import { MuscularGroup } from 'src/app/models/muscular_group';
 import { MuscularGroupService } from 'src/app/services/muscular-group.service';
 import { ExerciseService } from 'src/app/modules/exercise/services/exercise.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-exercise',
@@ -18,7 +19,8 @@ export class NewExerciseComponent implements OnInit {
   name: string = '';
   muscularGroupId: string = '';
 
-  constructor(private muscularGroupService: MuscularGroupService, private service: ExerciseService) { }
+  constructor(private muscularGroupService: MuscularGroupService, private service: ExerciseService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.muscularGroupService.list()
@@ -30,7 +32,6 @@ export class NewExerciseComponent implements OnInit {
   }
 
   // todo:
-  //   - salvar exercicio
   //   - testar se chama o service.create
   //   - testar e2e
   //   - extrair componente form ?
@@ -42,7 +43,7 @@ export class NewExerciseComponent implements OnInit {
 
     this.service.create(exercise)
       .subscribe(response => {
-        console.log(response)
+        this.router.navigateByUrl(`exercises/${response.exercise.id}`)
       },
       error => {
         if(error.status === 400) {
