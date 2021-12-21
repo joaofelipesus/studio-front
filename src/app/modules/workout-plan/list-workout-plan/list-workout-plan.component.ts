@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WorkoutPlan } from 'src/app/models/workout_plan';
 import { PaginatorService } from 'src/app/services/paginator.service';
 import { WorkoutPlanService } from '../services/workout-plan.service';
+import { WorkoutPlanFactory } from 'src/app/factories/workout_plan_factory';
 
 @Component({
   selector: 'app-list-workout-plan',
