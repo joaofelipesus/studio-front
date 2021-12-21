@@ -7,10 +7,11 @@ import { ShowStudentComponent } from './show-student/show-student.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { NewStudentComponent } from './new-student/new-student.component';
 import { FormsModule } from '@angular/forms';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 
 
 @NgModule({
-  declarations: [ListStudentComponent, ShowStudentComponent, NewStudentComponent],
+  declarations: [ListStudentComponent, ShowStudentComponent, NewStudentComponent, EditStudentComponent],
   imports: [
     CommonModule,
     StudentRoutingModule,
