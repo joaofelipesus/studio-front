@@ -7,7 +7,13 @@
     <tbody>
       <tr *ngFor="let student of tableMetadata.elements">
         <td>{{student.user.name}}</td>
-        <td></td>
+        <td>
+          <a routerLink="{{student.id}}" class="btn btn-sm btn-outline-info">
+            <span class="material-icons text-info">
+              search
+            </span>
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>
