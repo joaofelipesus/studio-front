@@ -6,10 +6,11 @@ import { ListWorkoutPlanComponent } from './list-workout-plan/list-workout-plan.
 import { ShowWorkoutPlanComponent } from './show-workout-plan/show-workout-plan.component';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { EditWorkoutPlanComponent } from './edit-workout-plan/edit-workout-plan.component';
 
 
 @NgModule({
-  declarations: [ListWorkoutPlanComponent, ShowWorkoutPlanComponent],
+  declarations: [ListWorkoutPlanComponent, ShowWorkoutPlanComponent, EditWorkoutPlanComponent],
   imports: [
     CommonModule,
     WorkoutPlanRoutingModule,

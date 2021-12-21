@@ -7,11 +7,11 @@
     <div class="card-body">
       <div class="mb-3">
         <label>Nome</label>
-        <input type="text" value={{this.exercise.name}} class="form-control" disabled>
+        <input type="text" value={{this.exercise.name}} id="name" class="form-control" disabled>
       </div>
       <div class="mb-3">
         <label>Grupo muscular</label>
-        <input type="text" value={{this.exercise.muscularGroup?.name}} class="form-control" disabled>
+        <input type="text" value={{this.exercise.muscularGroup?.name}} id="muscular-group" class="form-control" disabled>
       </div>
       <a routerLink="/exercises/{{exercise.id}}/edit" class="btn btn-warning text-white">
         Editar

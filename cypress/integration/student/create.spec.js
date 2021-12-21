@@ -10,10 +10,14 @@ describe('personal create student', () => {
 
   it('create student success', () => {
     cy.request('POST', 'localhost:3000/api/e2e/setup?create_student=true')
+    cy.server();
     cy.get('#name').type('New student e2e')
     cy.get('#email').type('create.student@e2e.com')
     cy.get('.btn').click()
+    cy.wait(200)
     cy.url().should('contains', 'http://localhost:4200/students/');
+    cy.get('#name').should('have.value', 'New student e2e')
+    cy.get('#email').should('have.value', 'create.student@e2e.com')
   })
 
   it('when missing a required field', () => {
