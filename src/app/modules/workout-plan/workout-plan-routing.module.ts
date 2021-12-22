@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EditWorkoutPlanComponent } from './edit-workout-plan/edit-workout-plan.component';
 import { ListWorkoutPlanComponent } from './list-workout-plan/list-workout-plan.component';
+import { NewWorkoutPlanComponent } from './new-workout-plan/new-workout-plan.component';
 import { ShowWorkoutPlanComponent } from './show-workout-plan/show-workout-plan.component';
 
 const routes: Routes = [
   {path: '', component: ListWorkoutPlanComponent},
+  {path: 'new', component: NewWorkoutPlanComponent},
   {path: ':id', component: ShowWorkoutPlanComponent},
   {path: ':id/edit', component: EditWorkoutPlanComponent}
 ];

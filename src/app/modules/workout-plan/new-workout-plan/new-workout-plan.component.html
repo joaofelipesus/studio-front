@@ -1,0 +1,19 @@
+<main class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>Nova rotina de treino</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="save()" class="form">
+        <app-form-errors [errors]="errorMessages"></app-form-errors>
+        <div class="mb-3">
+          <label for="name">Nome</label>
+          <input type="text" name="name" id="name" [(ngModel)]="workoutplan.name" class="form-control">
+        </div>
+        <button class="btn btn-primary">
+          Salvar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
