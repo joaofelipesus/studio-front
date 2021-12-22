@@ -1,7 +1,4 @@
 import { personalDoLogin } from "../../helpers/user_actions"
-import { interceptExerciseListRequest } from "../../request-mocks/exercises";
-import { interceptGetExerciseRequest } from "../../request-mocks/exercises/get";
-import { muscularGroupsIndexRequestMock } from "../../request-mocks/muscular_group";
 
 describe("personal updating exercise", () => {
 
@@ -24,6 +21,8 @@ describe("personal updating exercise", () => {
   it("redirect to show when arguments are valid", () => {
     cy.get('#name').type(' Updated [e2e]');
     cy.get('.btn').click();
+    cy.wait(200)
     cy.url().should('equal', 'http://localhost:4200/exercises/f518aca0-61b9-11ec-90d6-0242ac120003');
+    cy.get('#name').should('have.value', '0 Some cool name Updated [e2e]')
   })
 })

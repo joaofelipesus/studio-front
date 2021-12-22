@@ -1,18 +1,14 @@
 <main class="container mt-5">
   <div class="card">
     <div class="card-header">
-      <h2>Editar aluno</h2>
+      <h2>Editar rotina de treino</h2>
     </div>
     <div class="card-body">
       <form (ngSubmit)="save()">
         <app-form-errors [errors]="errorMessages"></app-form-errors>
         <div class="mb-3">
           <label for="name">Nome</label>
-          <input type="text" name="name" id="name" [(ngModel)]="student.user.name" class="form-control">
-        </div>
-        <div class="mb-3">
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" [(ngModel)]="student.user.email" class="form-control">
+          <input type="text" name="name" id="name" class="form-control" [(ngModel)]="workoutPlan.name" />
         </div>
         <button class="btn btn-primary">
           Salvar

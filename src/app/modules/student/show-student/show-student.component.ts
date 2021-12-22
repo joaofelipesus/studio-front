@@ -30,7 +30,7 @@ export class ShowStudentComponent implements OnInit {
   private handleError(error) : void {
     {
       if (error.status === 404)
-        this.errorMessages = ["Exercício não encontrado"]
+        this.errorMessages = ["Aluno não encontrado"]
       else
         console.log(error)
     }

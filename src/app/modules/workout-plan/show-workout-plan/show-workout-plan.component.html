@@ -1,0 +1,15 @@
+<main class="container mt-5">
+  <app-form-errors [errors]="errorMessages"></app-form-errors>
+  <div class="card" *ngIf="errorMessages.length === 0">
+    <div class="card-header">
+      <h2>Rotina de treino</h2>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label>Nome</label>
+        <input type="text" disabled class="form-control" value={{workoutPlan.name}} id="name">
+      </div>
+      <a routerLink="/workout_plans/{{workoutPlan.id}}/edit" class="btn btn-warning">Editar</a>
+    </div>
+  </div>
+</main>
