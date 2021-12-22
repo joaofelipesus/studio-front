@@ -12,4 +12,11 @@ export class User {
     this.password = password;
   }
 
+  formatedName() {
+    const splittedNames: Array<String> = this.name.split(' ');
+    const firstName = splittedNames[0];
+    const lastName = splittedNames[splittedNames.length - 1];
+    return `${firstName} ${lastName}`;
+  }
+
 }

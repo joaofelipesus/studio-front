@@ -40,6 +40,17 @@
             <li><a id="list-workout-plan" class="dropdown-item" routerLink="workout_plans">Buscar</a></li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown" *ngIf="isPersonal()">
+          <a class="nav-link dropdown-toggle" href="#" id="schedule-options" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Horários
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" id="new-schedule" routerLink='schedules/new'>Novo</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a id="list-schedule" class="dropdown-item" routerLink="schedules">Buscar</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="navbar-nav mb-2 mb-lg-0" *ngIf="logedIn()">
         <li class="nav-item">
