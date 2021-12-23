@@ -15,7 +15,7 @@
         <td>{{schedule.student.user.formatedName()}}</td>
         <td>{{schedule.startAt}} - {{schedule.date | date: 'dd/MM'}}</td>
         <td>
-          <a class="btn btn-sm btn-outline-info text-info show-schedule" routerLink="/schedules/{{schedule.id}}">
+          <a class="btn btn-sm btn-outline-info text-info show-schedule" id="schedule-{{schedule.id}}" routerLink="/schedules/{{schedule.id}}">
             <span class="material-icons text-info">
               search
             </span>

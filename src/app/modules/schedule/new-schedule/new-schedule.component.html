@@ -16,12 +16,12 @@
         </div>
         <div class="mb-3">
           <label for="startAt">Horário de início</label>
-          <input type="text" [(ngModel)]="schedule.startAt" (ngModelChange)="schedule.startAt=$event; startAtChange()" name="startAt" class="form-control" placeholder="00:00"
+          <input type="text" id='start-at' [(ngModel)]="schedule.startAt" (ngModelChange)="schedule.startAt=$event; startAtChange()" name="startAt" class="form-control" placeholder="00:00"
            maxlength="5">
         </div>
         <div class="mb-3">
           <label for="date">Data</label>
-          <input type="date" class="form-control" name="date" [(ngModel)]="schedule.date">
+          <input type="date" class="form-control" name="date" id='date' [(ngModel)]="schedule.date">
         </div>
         <div class="mb-3">
           <label for="workout-plan">Treino</label>

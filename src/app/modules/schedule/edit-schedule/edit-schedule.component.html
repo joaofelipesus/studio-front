@@ -13,7 +13,7 @@
         <div class="mb-3">
           <label for="start-at">Horário de início</label>
           <input type="text" [(ngModel)]="schedule.startAt" (ngModelChange)="schedule.startAt=$event; startAtChange()" name="startAt" class="form-control" placeholder="00:00"
-           maxlength="5">
+           maxlength="5" id="start-at">
         </div>
         <div class="mb-3">
           <label for="date">Data</label>
