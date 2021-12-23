@@ -1,0 +1,40 @@
+<main class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>Agendar treino</h2>
+    </div>
+    <div class="card-body">
+      <form class="form" (ngSubmit)="save()">
+        <app-form-errors [errors]="errorMessages"></app-form-errors>
+        <div class="mb-3">
+          <label for="studentId">Aluno</label>
+          <select name="studentId" id="student-id" [(ngModel)]="schedule.studentId" class="form-select">
+            <option value="{{student.id}}" *ngFor="let student of students">
+              {{ student.user.name }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="startAt">Horário de início</label>
+          <input type="text" id='start-at' [(ngModel)]="schedule.startAt" (ngModelChange)="schedule.startAt=$event; startAtChange()" name="startAt" class="form-control" placeholder="00:00"
+           maxlength="5">
+        </div>
+        <div class="mb-3">
+          <label for="date">Data</label>
+          <input type="date" class="form-control" name="date" id='date' [(ngModel)]="schedule.date">
+        </div>
+        <div class="mb-3">
+          <label for="workout-plan">Treino</label>
+          <select name="workout-plan" id="workout-plan" class="form-select" [(ngModel)]="schedule.workoutPlanId">
+            <option value="{{workoutPlan.id}}" *ngFor="let workoutPlan of workoutPlans">
+              {{workoutPlan.name}}
+            </option>
+          </select>
+        </div>
+        <button class="btn btn-primary">
+          Salvar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

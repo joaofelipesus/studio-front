@@ -1,0 +1,37 @@
+<main class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>Editar horário</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="save()">
+        <app-form-errors [errors]="errorMessages"></app-form-errors>
+        <div class="mb-3">
+          <label>Aluno</label>
+          <input id="student-name" class="form-control" disabled value={{schedule.student?.user.name}}>
+        </div>
+        <div class="mb-3">
+          <label for="start-at">Horário de início</label>
+          <input type="text" [(ngModel)]="schedule.startAt" (ngModelChange)="schedule.startAt=$event; startAtChange()" name="startAt" class="form-control" placeholder="00:00"
+           maxlength="5" id="start-at">
+        </div>
+        <div class="mb-3">
+          <label for="date">Data</label>
+          <input type="date" name="date" id="date" [ngModel]="schedule.date | date: 'yyyy-MM-dd'" (ngModelChange)="schedule.date= $event" class="form-control"/>
+        </div>
+        <div class="mb-3">
+          <label for="workout-plan-id">Treino</label>
+          <select name="workout-plan-id" id="workout-plan-id" class="form-select" [(ngModel)]="schedule.workoutPlanId">
+            <option value="{{workoutPlan.id}}" *ngFor="let workoutPlan of workoutPlans">
+              {{workoutPlan.name}}
+            </option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary">
+          Salvar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

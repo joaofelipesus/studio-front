@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { WorkoutPlan } from 'src/app/models/workout_plan';
+import { Schedule } from 'src/app/models/schedule';
 
-import { WorkoutPlanService } from './workout-plan.service';
+import { ScheduleService } from './schedule.service';
 
-describe('WorkoutPlanService', () => {
-  let service: WorkoutPlanService;
+describe('ScheduleService', () => {
+  let service: ScheduleService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
-  let workoutPlan = new WorkoutPlan({name: 'Some cool workout plan'});
+  let schedule: Schedule = new Schedule({});
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get','post', 'put']);
@@ -16,7 +16,7 @@ describe('WorkoutPlanService', () => {
         { provide: HttpClient, useValue: httpClientSpy }
       ]
     });
-    service = TestBed.inject(WorkoutPlanService);
+    service = TestBed.inject(ScheduleService);
     localStorage.setItem('authToken', '1q2w3e4r');
   });
 
@@ -27,17 +27,12 @@ describe('WorkoutPlanService', () => {
   });
 
   it('#create should call post method', () => {
-    service.create(workoutPlan);
+    service.create(schedule);
     expect(httpClientSpy.post.calls.count()).toBe(1);
   })
 
   it('#list should call get method', () => {
     service.list()
-    expect(httpClientSpy.get.calls.count()).toBe(1);
-  })
-
-  it('#listAll should call get method', () => {
-    service.listAll()
     expect(httpClientSpy.get.calls.count()).toBe(1);
   })
 
@@ -47,7 +42,7 @@ describe('WorkoutPlanService', () => {
   })
 
   it('#update should call put method', () => {
-    service.update(workoutPlan);
+    service.update(schedule);
     expect(httpClientSpy.put.calls.count()).toBe(1);
   })
 });

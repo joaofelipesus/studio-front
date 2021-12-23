@@ -17,6 +17,10 @@ export class StudentService {
     return this.httpClient.get(`${this.BASE_URL}?page=${page}`, this.headerService.setupHeaders());
   }
 
+  listAll() {
+    return this.httpClient.get(`${this.BASE_URL}?all=true`, this.headerService.setupHeaders());
+  }
+
   find(id) {
     return this.httpClient.get(`${this.BASE_URL}/${id}`, this.headerService.setupHeaders());
   }

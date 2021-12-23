@@ -1,0 +1,27 @@
+<main class="container mt-5">
+  <app-form-errors [errors]="errorMessages"></app-form-errors>
+  <div class="card" *ngIf="errorMessages.length === 0">
+    <div class="card-header">
+      <h2>Horário</h2>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label>Horário</label>
+        <input type="text" disabled class="form-control" value="{{schedule.startAt}}" id="start-at">
+      </div>
+      <div class="mb-3">
+        <label>Data</label>
+        <input type="text" class="form-control" disabled value="{{ schedule.date| date: 'dd/MM/yyyy' }}" id="date"/>
+      </div>
+      <div class="mb-3">
+        <label>Aluno</label>
+        <input type="text" disabled class="form-control" id="student" value="{{schedule.student?.user.name}}">
+      </div>
+      <div class="mb-3">
+        <label>Treino</label>
+        <input type="text" disabled class="form-control" id="workout-plan" value="{{schedule.workoutPlan?.name}}" />
+      </div>
+      <a routerLink="edit" class="btn btn-warning">Editar</a>
+    </div>
+  </div>
+</main>
