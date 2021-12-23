@@ -1,19 +1,19 @@
 
 <main class="container mt-3">
   <h2 class="text-center mb-2">
-    Exercícios
+    Horários
   </h2>
 
   <table class="table">
     <thead>
       <th>Aluno</th>
-      <th>Treino</th>
+      <th>Horário</th>
       <th></th>
     </thead>
     <tbody>
       <tr *ngFor="let schedule of this.tableMetadata?.elements">
         <td>{{schedule.student.user.formatedName()}}</td>
-        <td>{{schedule.startAt | date: 'HH:mm - dd/MM'}}</td>
+        <td>{{schedule.startAt}} - {{schedule.date | date: 'dd/MM'}}</td>
         <td>
           <a class="btn btn-sm btn-outline-info text-info show-schedule" routerLink="/schedules/{{schedule.id}}">
             <span class="material-icons text-info">

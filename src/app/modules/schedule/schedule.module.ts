@@ -5,10 +5,11 @@ import { ScheduleRoutingModule } from './schedule-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ListScheduleComponent } from './list-schedule/list-schedule.component';
 import { ShowScheduleComponent } from './show-schedule/show-schedule.component';
+import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 
 
 @NgModule({
-  declarations: [ListScheduleComponent, ShowScheduleComponent],
+  declarations: [ListScheduleComponent, ShowScheduleComponent, EditScheduleComponent],
   imports: [
     CommonModule,
     ScheduleRoutingModule,

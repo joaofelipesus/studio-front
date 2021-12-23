@@ -8,9 +8,10 @@ describe('ScheduleFactory#build', () => {
     "schedule": {
       "id": "2d388a23-ffcd-4783-97ed-1df15ae88a0f",
       "workout_plan_id": "7cad8bac-5b7a-4b88-848b-c84b6855c9dd",
-      "start_at": "2021-12-20 10:46:53 -0300",
       "status": "pending",
       "personal_id": "87d9a7c6-9255-451a-9cc0-2b60bb475c53",
+      "start_at": "18:30",
+      "date": "2021-12-22",
       "workout_plan": {
         "id": "7cad8bac-5b7a-4b88-848b-c84b6855c9dd",
         "name": "Shai Utoh",
@@ -27,12 +28,12 @@ describe('ScheduleFactory#build', () => {
     }
   }
 
-
   it('should return a schedule object', () => {
     const schedule : Schedule = ScheduleFactory.build(params);
     expect(schedule.id).toMatch('2d388a23-ffcd-4783-97ed-1df15ae88a0f');
     expect(schedule.workoutPlanId).toMatch('7cad8bac-5b7a-4b88-848b-c84b6855c9dd');
-    expect(schedule.startAt).toEqual(new Date("2021-12-20 10:46:53 -0300"))
+    expect(schedule.startAt).toMatch('18:30');
+    expect(schedule.date).toEqual(new Date('2021-12-22'));
     expect(schedule.status).toMatch("pending");
     expect(schedule.personalId).toMatch("87d9a7c6-9255-451a-9cc0-2b60bb475c53");
     expect(schedule.student).toBeInstanceOf(Student);

@@ -1,0 +1,19 @@
+<main class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>Editar horário</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="save()">
+        <app-form-errors [errors]="errorMessages"></app-form-errors>
+        <div class="mb-3">
+          <label for="start-at">Horário de início</label>
+          <input type="datetime-local" name="start-at" [ngModel]="schedule.startAt | date: 'dd/MM/yyyy HH:mm'" />
+        </div>
+        <button class="btn btn-primary">
+          Salvar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

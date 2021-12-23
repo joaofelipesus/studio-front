@@ -8,7 +8,8 @@ export class ScheduleFactory {
     return new Schedule({
       id: scheduleParams.id,
       personalId: scheduleParams.personal_id,
-      startAt: new Date(scheduleParams.start_at),
+      startAt: scheduleParams.start_at,
+      date: new Date(scheduleParams.date),
       status: scheduleParams.status,
       workoutPlan: WorkoutPlanFactory.build(scheduleParams),
       student: StudentFactory.build(scheduleParams),
