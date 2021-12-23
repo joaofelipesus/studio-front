@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ListScheduleComponent } from './list-schedule/list-schedule.component';
 import { ShowScheduleComponent } from './show-schedule/show-schedule.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
+import { WorkoutPlanModule } from '../workout-plan/workout-plan.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
     CommonModule,
     ScheduleRoutingModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+    WorkoutPlanModule
   ]
 })
 export class ScheduleModule { }

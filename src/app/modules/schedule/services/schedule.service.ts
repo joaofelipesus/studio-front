@@ -33,7 +33,8 @@ export class ScheduleService {
     return {
       student_id: schedule.studentId,
       workout_plan_id: schedule.workoutPlanId,
-      start_at: schedule.startAt
+      start_at: schedule.startAt,
+      date: schedule.date
     }
   }
 }

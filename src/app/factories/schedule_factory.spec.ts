@@ -33,7 +33,7 @@ describe('ScheduleFactory#build', () => {
     expect(schedule.id).toMatch('2d388a23-ffcd-4783-97ed-1df15ae88a0f');
     expect(schedule.workoutPlanId).toMatch('7cad8bac-5b7a-4b88-848b-c84b6855c9dd');
     expect(schedule.startAt).toMatch('18:30');
-    expect(schedule.date).toEqual(new Date('2021-12-22'));
+    expect(schedule.date).toEqual(new Date(2021, 11, 22));
     expect(schedule.status).toMatch("pending");
     expect(schedule.personalId).toMatch("87d9a7c6-9255-451a-9cc0-2b60bb475c53");
     expect(schedule.student).toBeInstanceOf(Student);

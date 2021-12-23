@@ -26,10 +26,6 @@ describe('WorkoutPlanService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
   it('#create should call post method', () => {
     service.create(workoutPlan);
     expect(httpClientSpy.post.calls.count()).toBe(1);
@@ -37,6 +33,11 @@ describe('WorkoutPlanService', () => {
 
   it('#list should call get method', () => {
     service.list()
+    expect(httpClientSpy.get.calls.count()).toBe(1);
+  })
+
+  it('#listAll should call get method', () => {
+    service.listAll()
     expect(httpClientSpy.get.calls.count()).toBe(1);
   })
 
