@@ -47,8 +47,20 @@ export class EditScheduleComponent implements OnInit {
     {
       if (error.status === 404)
         this.errorMessages = ["Horário não encontrado"]
+      else if(error.status === 400)
+        this.errorMessages = error.error.errors
       else
         console.log(error)
+    }
+  }
+
+  startAtChange(){
+    const startAt: string = this.schedule.startAt;
+    if(startAt.length === 2)
+      this.schedule.startAt += ':'
+    if (startAt.length > 2 && !startAt.includes(':')) {
+      const start = startAt.slice(0, 2)
+      this.schedule.startAt = `${start}:${start[start.length - 1]}`
     }
   }
 

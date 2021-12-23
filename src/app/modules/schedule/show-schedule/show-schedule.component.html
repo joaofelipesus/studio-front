@@ -7,7 +7,11 @@
     <div class="card-body">
       <div class="mb-3">
         <label>Horário</label>
-        <input type="text" disabled class="form-control" value="{{schedule.startAt}} {{ schedule.date| date: 'dd/MM/yyyy' }}" id="start-at">
+        <input type="text" disabled class="form-control" value="{{schedule.startAt}}" id="start-at">
+      </div>
+      <div class="mb-3">
+        <label>Data</label>
+        <input type="text" class="form-control" disabled value="{{ schedule.date| date: 'dd/MM/yyyy' }}" />
       </div>
       <div class="mb-3">
         <label>Aluno</label>

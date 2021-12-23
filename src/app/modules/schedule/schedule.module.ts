@@ -7,16 +7,18 @@ import { ListScheduleComponent } from './list-schedule/list-schedule.component';
 import { ShowScheduleComponent } from './show-schedule/show-schedule.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 import { WorkoutPlanModule } from '../workout-plan/workout-plan.module';
-
+import { NewScheduleComponent } from './new-schedule/new-schedule.component';
+import { StudentModule } from '../student/student.module';
 
 @NgModule({
-  declarations: [ListScheduleComponent, ShowScheduleComponent, EditScheduleComponent],
+  declarations: [ListScheduleComponent, ShowScheduleComponent, EditScheduleComponent, NewScheduleComponent],
   imports: [
     CommonModule,
     ScheduleRoutingModule,
     FormsModule,
     ComponentsModule,
-    WorkoutPlanModule
+    WorkoutPlanModule,
+    StudentModule,
   ]
 })
 export class ScheduleModule { }

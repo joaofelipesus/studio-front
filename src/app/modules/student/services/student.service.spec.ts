@@ -32,6 +32,11 @@ describe('StudentService', () => {
     expect(httpClientSpy.get.calls.count()).toBe(1);
   })
 
+  it('#listAll should call get method one time', () => {
+    service.listAll()
+    expect(httpClientSpy.get.calls.count()).toBe(1);
+  })
+
   it('#find should call get method one time', () => {
     service.find('1q2w3e')
     expect(httpClientSpy.get.calls.count()).toBe(1);

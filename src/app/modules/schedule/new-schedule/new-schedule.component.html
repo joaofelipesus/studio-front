@@ -1,33 +1,36 @@
 <main class="container mt-5">
   <div class="card">
     <div class="card-header">
-      <h2>Editar horário</h2>
+      <h2>Agendar treino</h2>
     </div>
     <div class="card-body">
-      <form (ngSubmit)="save()">
+      <form class="form" (ngSubmit)="save()">
         <app-form-errors [errors]="errorMessages"></app-form-errors>
         <div class="mb-3">
-          <label>Aluno</label>
-          <input id="student-name" class="form-control" disabled value={{schedule.student?.user.name}}>
+          <label for="studentId">Aluno</label>
+          <select name="studentId" id="student-id" [(ngModel)]="schedule.studentId" class="form-select">
+            <option value="{{student.id}}" *ngFor="let student of students">
+              {{ student.user.name }}
+            </option>
+          </select>
         </div>
         <div class="mb-3">
-          <label for="start-at">Horário de início</label>
+          <label for="startAt">Horário de início</label>
           <input type="text" [(ngModel)]="schedule.startAt" (ngModelChange)="schedule.startAt=$event; startAtChange()" name="startAt" class="form-control" placeholder="00:00"
            maxlength="5">
         </div>
         <div class="mb-3">
           <label for="date">Data</label>
-          <input type="date" name="date" id="date" [ngModel]="schedule.date | date: 'yyyy-MM-dd'" (ngModelChange)="schedule.date= $event" class="form-control"/>
+          <input type="date" class="form-control" name="date" [(ngModel)]="schedule.date">
         </div>
         <div class="mb-3">
-          <label for="workout-plan-id">Treino</label>
-          <select name="workout-plan-id" id="workout-plan-id" class="form-select" [(ngModel)]="schedule.workoutPlanId">
+          <label for="workout-plan">Treino</label>
+          <select name="workout-plan" id="workout-plan" class="form-select" [(ngModel)]="schedule.workoutPlanId">
             <option value="{{workoutPlan.id}}" *ngFor="let workoutPlan of workoutPlans">
               {{workoutPlan.name}}
             </option>
           </select>
         </div>
-
         <button class="btn btn-primary">
           Salvar
         </button>
